@@ -105,11 +105,11 @@ std::map<std::pair<int, TokenType>, Action> createActionTable() {
 
 std::map<std::pair<int, int>, int> createGotoTable() {
     std::map<std::pair<int, int>, int> gotoTable;
-    gotoTable[{0, 1}] = 1; // E
-    gotoTable[{0, 2}] = 2; // T
-    gotoTable[{0, 3}] = 3; // F
-    gotoTable[{6, 2}] = 2; // T
-    gotoTable[{7, 3}] = 3; // F
+    gotoTable[{0, 1}] = 1; 
+    gotoTable[{0, 2}] = 2;
+    gotoTable[{0, 3}] = 3; 
+    gotoTable[{6, 2}] = 2; 
+    gotoTable[{7, 3}] = 3;
     return gotoTable;
 }
 
@@ -129,7 +129,7 @@ public:
             auto actionIter = actionTable.find({currentState, token.type});
 
             if (actionIter == actionTable.end()) {
-                throw std::runtime_error("Syntax error");
+                throw std::runtime_error("Szintaktikai hiba");
             }
 
             Action action = actionIter->second;
@@ -147,10 +147,9 @@ public:
                     int lhs = rule.lhs;
                     auto gotoIter = gotoTable.find({stateStack.top(), lhs});
                     if (gotoIter == gotoTable.end()) {
-                        throw std::runtime_error("Syntax error");
+                        throw std::runtime_error("Szintaktikai hiba");
                     }
                     stateStack.push(gotoIter->second);
-                    // Számítás a redukció alapján
                     int result = 0;
                     if (rule.length == 3) {
                         int right = valueStack.top(); valueStack.pop();
@@ -169,7 +168,7 @@ public:
                 case Action::ACCEPT:
                     return valueStack.top();
                 case Action::ERROR:
-                    throw std::runtime_error("Syntax error");
+                    throw std::runtime_error("Szintaktikai hiba!");
             }
         }
     }
@@ -180,10 +179,9 @@ private:
     std::map<std::pair<int, int>, int> gotoTable;
 };
 
-// Fő program
 int main() {
     std::string text;
-    std::cout << "Enter an expression: ";
+    std::cout << "Adjon meg egy kifejezést: ";
     std::getline(std::cin, text);
 
     Tokenizer tokenizer(text);
