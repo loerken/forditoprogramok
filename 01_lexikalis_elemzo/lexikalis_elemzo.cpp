@@ -102,6 +102,7 @@ bool isNumber(const std::string& str) {
     return true;
 }
 
+
 std::string subString(const std::string& str, int l, int r) {
     return str.substr(l, r - l + 1);
 }
