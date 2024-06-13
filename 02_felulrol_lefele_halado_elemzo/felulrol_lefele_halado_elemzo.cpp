@@ -1,3 +1,9 @@
+// Fordítóprogramok 2.feladat - Általános felülről lefelé haladó elemző
+// A lenti program egy egyszerű aritmetikai kifejezéseket feldolgozó elemző,
+// mely első lépésben bekéri az elemezni kívánt aritmetikai kifejezést, a
+// Tokenizer osztály tokenekre bontja, a Parser osztály pedig kiértékeli az
+// inputként kapott aritmetikai kifejezést.
+
 #include <iostream>
 #include <string>
 #include <cctype>
