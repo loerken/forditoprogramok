@@ -1,3 +1,9 @@
+// Fordítóprogramok 8.feladat - LR0 elemzés
+// A lenti program egy lentről felfelé haladó szintaktikai elemzőt valósít meg.
+// Képes a megadott nyelvtan alapján az input szöveg szintaktikai helyességét
+// ellenőrizni. Az implementáció létrehozza a szükséges átmeneteket és állapotokat
+// a szabályok alapján, majd ezeket használja az input értékelésére.
+
 #include <iostream>
 #include <vector>
 #include <stack>
